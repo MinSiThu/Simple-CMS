@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<h1>Hello Blog</h1>
+{% for content in contents %}
+    <h1>{{content.title}}</h1>
+    <a href={{content.getAbsoluteURL}}>Read More</a>
+{% endfor %}
+{% endblock %}
