@@ -1,11 +1,22 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Building a cms in django</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'contact/contact.css' %}">
+
+    {% block style %}
+    {% endblock %}
 </head>
 <body>
+    <nav>
+        <a href="/contact">Contact Us</a>
+    </nav>
+
     <section>
         {% block container %}
         {% endblock %}
