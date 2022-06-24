@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import ContentListView,ContentDetailView
+from .views import ContentListView,ContentDetailView,ContentApiView
 
 app_name = 'blog'
 
 urlpatterns = [
     path('',ContentListView.as_view(),name="content_list"),
-    path("<slug:slug>/",ContentDetailView.as_view(),name="content_detail")
+    path('api/contents/',ContentApiView.as_view(),name="content_api"),
+    path('api/contents/<int:id>/',ContentApiView.as_view(),name="content_api"),
+    path("<slug:slug>/",ContentDetailView.as_view(),name="content_detail"),
 ]
