@@ -2,7 +2,7 @@
 
 {% block container %}
     <h1>Hello FormModel</h1>
-    <form>
+    <form method="POST" action="/contact/">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit"/>
