@@ -2,8 +2,11 @@
 
 {% block container %}
 <div class="container mt-4">
+    <h6>
+        Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+    </h6>
     <div class="row gy-4">
-{% for content in contents %}
+    {% for content in contents %}
         <div class="col">
             <div class="card p-4" style="width:18rem">
                 <h5 class="card-title">{{content.title}}</h5>
@@ -12,7 +15,39 @@
                 <a class="card-link" href={{content.getAbsoluteURL}}>Read More</a>
             </div>
         </div>
-{% endfor %}
+    {% endfor %}
     </div>
 </div>
+
+<div class="container mt-3">
+    <nav>
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo first</a>
+                </li>
+
+
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page_obj.previous_page_number}}">previous</a>
+                </li>
+            {% endif %}
+
+            <li class="page-item active">
+                <span class="page-link">{{page_obj.number}}</span>
+            </li>
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page_obj.next_page_number}}">next</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page_obj.paginator.num_pages}}">last &raquo</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
 {% endblock %}

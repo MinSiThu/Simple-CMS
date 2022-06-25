@@ -9,6 +9,7 @@ from .serializers import ContentSerializer
 # Create your views here.
 
 class ContentListView(ListView):
+    paginate_by = 3
     model = Content
     context_object_name = "contents"
     template_name = 'blog/content_list.html'
