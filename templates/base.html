@@ -14,14 +14,22 @@
     {% endblock %}
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/contact">Contact Us</a>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand mb-0 h1" href="/">Blog Name</a>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <section>
         {% block container %}
         {% endblock %}
     </section>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.0-beta1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 
 {% block container %}
-<h1>Hello Blog</h1>
+<div class="container mt-4">
+    <div class="row gy-4">
 {% for content in contents %}
-    <h1>{{content.title}}</h1>
-    <a href={{content.getAbsoluteURL}}>Read More</a>
+        <div class="col">
+            <div class="card p-4" style="width:18rem">
+                <h5 class="card-title">{{content.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"> {{content.author}} | {{content.published_time}}</h6>
+                <p class="card-text">{{content.body|slice:":200"}}</p>
+                <a class="card-link" href={{content.getAbsoluteURL}}>Read More</a>
+            </div>
+        </div>
 {% endfor %}
+    </div>
+</div>
 {% endblock %}

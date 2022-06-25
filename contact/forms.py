@@ -8,10 +8,12 @@ class ContactForm(ModelForm):
         widgets = {
             "email":EmailInput(attrs={
                 'required':True,
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder':"Email"
             }),
             'message':Textarea(attrs={
                 'required':True,
-                'class':'form-control'
+                'class':'form-control',
+                'placeholder':'message'
             })
         }

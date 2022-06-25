@@ -1,7 +1,10 @@
 {% extends 'base.html'%}
 
 {% block container %}
-<h1>{{ content.title }}</h1>
-<h6> {{ content.published_time}} </h6>
-<p> {{ content.body}} </p>
+<div class="container mt-2">
+    <h1>{{ content.title }}</h1>
+    <h5>{{ content.author }}</h5>
+    <h6> {{ content.published_time}} </h6>
+    <p> {{ content.body}} </p>
+</div>
 {% endblock %}
