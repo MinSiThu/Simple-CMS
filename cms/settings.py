@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +41,10 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'contact.apps.ContactConfig'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':"blog.pagination.StandardPagination",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
