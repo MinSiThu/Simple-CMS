@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
