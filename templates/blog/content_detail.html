@@ -4,6 +4,11 @@
 <div class="container mt-2">
     <h1>{{ content.title }}</h1>
     <h5>{{ content.author }}</h5>
+    {% if content.category %}
+        {%for c in category %}
+            {{c}}
+        {% endfor %}
+    {% endif %}
     <h6> {{ content.published_time}} </h6>
     {% if content.photo %}
         <img class="img-fluid" src="{{content.photo.url}}" alt="{{content.title}}">

@@ -3,10 +3,11 @@ from django.views.generic import ListView,DetailView
 from .models import Content
 
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ContentSerializer
-from .pagination import StandardPagination
+from rest_framework.pagination import PageNumberPagination 
 # Create your views here.
 
 class ContentListView(ListView):
@@ -21,7 +22,6 @@ class ContentDetailView(DetailView):
     template_name = 'blog/content_detail.html'
 
 class ContentApiView(APIView):
-
     def get(self,request,id=None):
         if id:    
             content = Content.objects.get(id=id)
@@ -40,3 +40,8 @@ class ContentApiView(APIView):
         else:
             return Response({'status':'error','data':serializer.errors},status=status.HTTP_400_BAD_REQUEST)
             
+
+class ContentListApiView(ListAPIView):
+    queryset = Content.objects.all()
+    serializer_class = ContentSerializer
+    pagination_class = PageNumberPagination

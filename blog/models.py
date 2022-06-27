@@ -6,6 +6,12 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 # Create your models here.
 
+class Category(models.Model):
+    name = models.CharField(max_length=250,unique=True)
+
+    def __str__(self):
+            return self.name
+
 class Content(models.Model):
     title = models.CharField(max_length=250,unique=True)
     slug = models.SlugField(max_length=250,unique=True)
@@ -22,3 +28,4 @@ class Content(models.Model):
 
     def getAbsoluteURL(self):
         return reverse('blog:content_detail',args=[self.slug])
+
