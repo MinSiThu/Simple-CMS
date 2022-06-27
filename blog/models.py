@@ -10,6 +10,7 @@ class Content(models.Model):
     title = models.CharField(max_length=250,unique=True)
     slug = models.SlugField(max_length=250,unique=True)
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name="blog_contents")
+    photo = models.FileField(upload_to='media',null=True,blank=True)
     body = HTMLField()
     published_time = models.DateTimeField(default=timezone.now)
 
